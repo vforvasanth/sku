@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SKU Lookup</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<header>
+<h1>SKU Lookup</h1>
+</header>
+<body>
+    <p>Enter your SKU below:</p>
+	<p><input type="text" id="sku" th:value="${sku}"></p>
+	<button type="button" onClick="getSampleJson()">Create JSON</button>
+	<p id="json" th:text="${skus}"></p>
+	<button type="button" onClick="updateJson()">Update JSON</button>
+	<p>Time Taken(s):</p>
+	<p id="timetaken(s)" th:text="${timeTaken}"></p>
+	
+	<script>
+		function getSampleJson() {
+			window.location = "/getJson?sku=" + document.getElementById("sku").value;
+		}
+		
+		function updateJson() {
+			window.location = "/updateJson?sku=" + document.getElementById("sku").value;
+		}
+	</script>
+</body>
+</html>
